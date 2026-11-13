@@ -1,7 +1,6 @@
-/* --- CSS GRID LAYOUT CHO EXERCISE 1.3.2 --- */
+/* --- CSS GRID CHO EXERCISE 1.3.2 --- */
 .master-detail-layout {
   display: grid;
-  /* Cột trái (Master) rộng tối thiểu 280px, tối đa 1 phần. Cột phải (Detail) rộng gấp 2 lần */
   grid-template-columns: minmax(280px, 1fr) 2fr; 
   gap: 20px;
   padding: 20px;
@@ -9,7 +8,6 @@
   box-sizing: border-box;
 }
 
-/* Responsive: Màn hình dưới 768px (Tablet/Mobile) chuyển thành 1 cột dọc */
 @media (max-width: 768px) {
   .master-detail-layout {
     grid-template-columns: 1fr;
@@ -17,7 +15,6 @@
   }
 }
 
-/* Trang trí cột */
 .master-panel {
   border-right: 2px solid #e0e0e0;
   padding-right: 20px;
@@ -29,7 +26,6 @@
   overflow-y: auto;
 }
 
-/* Style cơ bản cho danh sách */
 .people-list {
   list-style: none;
   padding: 0;
@@ -44,14 +40,44 @@
   border-bottom: 1px solid #eee;
 }
 
-/* Style cho NavLink khi active */
 .active-link {
   font-weight: bold;
-  color: #d32f2f; /* Màu đỏ nổi bật */
+  color: #d32f2f;
   text-decoration: none;
 }
 
 .link {
   color: #1976d2;
   text-decoration: none;
+}
+
+/* --- CSS SKELETON CHO EXERCISE 1.2 --- */
+.skeleton-container {
+  min-height: 250px; /* Chống Layout Shift (CLS = 0) */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.skeleton-title, .skeleton-text {
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.skeleton-title {
+  height: 40px;
+  width: 60%;
+}
+
+.skeleton-text {
+  height: 20px;
+  width: 100%;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
 }

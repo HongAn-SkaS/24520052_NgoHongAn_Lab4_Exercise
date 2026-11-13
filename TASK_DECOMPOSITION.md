@@ -187,3 +187,11 @@ These exact commits will be used as atomic checkpoints. The remaining commits wi
 | **T1.7** | **CSS Grid Implementation** | Refactored layout to use native CSS Grid (`grid-template-columns: minmax(280px, 1fr) 2fr`). Removed legacy flexbox inline styles. Added `@media (max-width: 768px)` for mobile single-column fallback. | `feat: implement responsive css grid master-detail layout` |
 | **T1.8** | **Semantic HTML & 404 Guard** | Enforced `<dl>`, `<dt>`, `<dd>` for person metadata. Implemented robust 404 fallback using `people.find()` and `useParams()` for safe URL extraction. | *(Included in T1.7 commit)* |
 | **T1.9** | **Responsive Verification** | Verified Zero Layout Shift (CLS) and no horizontal scroll at 375px (iPhone SE). Checked DevTools Accessibility Tree for semantic landmarks. | *(No commit needed)* |
+
+
+### Exercise 1.2: Performance & Resiliency Architectural Upgrades
+
+| Task ID | Task Description | Technical Details | Git Commit (Atomic) |
+| :--- | :--- | :--- | :--- |
+| **T1.10** | **Skeleton Component** | Created `Skeleton.jsx` with `aria-busy="true"` and `aria-live="polite"`. Added CSS `min-height` to ensure Zero Layout Shift (CLS = 0). | `feat: create accessible skeleton fallback component` |
+| **T1.11** | **Lazy Loading Implementation** | Refactored `App.jsx` to use `React.lazy(() => import('./components/PersonDetail'))`. Wrapped the route element in `<Suspense fallback={<Skeleton />}>`. | `perf: implement react lazy and suspense for detail route` |

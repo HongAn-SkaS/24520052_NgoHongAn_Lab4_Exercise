@@ -1,7 +1,12 @@
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
+import { lazy, Suspense } from 'react'; 
+
 import PeopleLayout from './components/PeopleLayout';
-import PersonDetail from './components/PersonDetail';
-import './App.css'; // 1 dấu chấm vì App.jsx nằm cùng thư mục src với App.css
+import Skeleton from './components/Skeleton';
+import './App.css'; 
+
+// 1. Code Splitting: Dynamic import PersonDetail
+const PersonDetail = lazy(() => import('./components/PersonDetail'));
 
 const router = createBrowserRouter([
   {
@@ -14,7 +19,12 @@ const router = createBrowserRouter([
     children: [
       {
         path: ':id',
-        element: <PersonDetail />
+        // 2. Bọc trong Suspense để hiển thị Skeleton khi đang tải JS
+        element: (
+          <Suspense fallback={<Skeleton />}>
+            <PersonDetail />
+          </Suspense>
+        )
       }
     ]
   }

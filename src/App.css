@@ -1,0 +1,211 @@
+.directory {
+  width: min(100% - 2rem, 70rem);
+  margin-inline: auto;
+  padding-block: 2rem;
+}
+
+.directory__header {
+  margin-bottom: 2rem;
+}
+
+.directory__header h1 {
+  margin: 0 0 0.5rem;
+}
+
+.people-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1rem;
+}
+
+.person-card {
+  padding: 1.25rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.75rem;
+  background: #ffffff;
+}
+
+.person-card h2 {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+}
+
+.person-card__details {
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+}
+
+.person-card__details div {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.person-card__details dt {
+  color: #4b5563;
+  font-size: 0.875rem;
+}
+
+.person-card__details dd {
+  margin: 0;
+  font-weight: 700;
+}
+
+.directory__controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.form-field label {
+  font-weight: 600;
+}
+
+.form-field input {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid #9ca3af;
+  border-radius: 0.5rem;
+  background: #ffffff;
+  color: #111827;
+}
+
+.form-field input:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.form-field select {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid #9ca3af;
+  border-radius: 0.5rem;
+  background: #ffffff;
+  color: #111827;
+}
+
+.form-field select:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.directory__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.directory__toolbar p {
+  font-weight: 600;
+}
+
+.directory__toolbar button,
+.person-card__delete {
+  min-height: 2.5rem;
+  padding: 0.5rem 0.875rem;
+  border: 1px solid #9ca3af;
+  border-radius: 0.5rem;
+  background: #ffffff;
+  color: #111827;
+}
+
+.person-card__delete {
+  margin-top: 1rem;
+  border-color: #b91c1c;
+  color: #b91c1c;
+}
+
+.directory__toolbar button:hover,
+.person-card__delete:hover {
+  background: #f3f4f6;
+}
+
+.directory__toolbar button:focus-visible,
+.person-card__delete:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.directory__empty {
+  padding-block: 2rem;
+  text-align: center;
+  color: #4b5563;
+}
+
+@media (max-width: 480px) {
+  .directory__toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+.directory {
+  padding-block: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.directory__header p {
+  color: #4b5563;
+}
+
+.person-card {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.person-card__details {
+  flex-wrap: wrap;
+}
+
+.form-field input,
+.form-field select {
+  min-width: 0;
+}
+
+.directory__toolbar button,
+.person-card__delete {
+  min-width: 2.75rem;
+}
+
+@media (max-width: 600px) {
+  .directory {
+    width: min(100% - 1.25rem, 70rem);
+  }
+
+  .directory__header h1 {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+    line-height: 1.15;
+  }
+
+  .directory__controls {
+    grid-template-columns: 1fr;
+  }
+
+  .people-list {
+    grid-template-columns: 1fr;
+  }
+
+  .person-card {
+    padding: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

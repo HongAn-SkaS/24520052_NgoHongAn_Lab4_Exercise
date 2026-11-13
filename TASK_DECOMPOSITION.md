@@ -178,3 +178,12 @@ These exact commits will be used as atomic checkpoints. The remaining commits wi
 | **T1.3** | **Detail Route** | Tạo `PersonDetail.jsx`. Dùng `useParams()` lấy ID. Dùng `.find()` để lấy data. Thêm chốt chặn 404 Boundary. | `feat: detail route handling` |
 | **T1.4** | **Integration & Fixes** | Cấu hình `createBrowserRouter` trong `App.jsx`. Sửa các lỗi đường dẫn tương đối (từ `./` sang `../`). | `fix: resolve relative imports & configure router` |
 | **T1.5** | **Verification** | Kiểm tra Deep Linking (F5 không mất data), kiểm tra 404, và đảm bảo Console không có Warning. Ghi lỗi AI vào Audit. | *(No commit needed, part of verification)* |
+
+
+### Exercise 1.3.2: Responsive Master-Detail Architecture
+
+| Task ID | Task Description | Technical Details | Git Commit (Atomic) |
+| :--- | :--- | :--- | :--- |
+| **T1.7** | **CSS Grid Implementation** | Refactored layout to use native CSS Grid (`grid-template-columns: minmax(280px, 1fr) 2fr`). Removed legacy flexbox inline styles. Added `@media (max-width: 768px)` for mobile single-column fallback. | `feat: implement responsive css grid master-detail layout` |
+| **T1.8** | **Semantic HTML & 404 Guard** | Enforced `<dl>`, `<dt>`, `<dd>` for person metadata. Implemented robust 404 fallback using `people.find()` and `useParams()` for safe URL extraction. | *(Included in T1.7 commit)* |
+| **T1.9** | **Responsive Verification** | Verified Zero Layout Shift (CLS) and no horizontal scroll at 375px (iPhone SE). Checked DevTools Accessibility Tree for semantic landmarks. | *(No commit needed)* |

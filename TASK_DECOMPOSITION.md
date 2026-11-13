@@ -195,3 +195,12 @@ These exact commits will be used as atomic checkpoints. The remaining commits wi
 | :--- | :--- | :--- | :--- |
 | **T1.10** | **Skeleton Component** | Created `Skeleton.jsx` with `aria-busy="true"` and `aria-live="polite"`. Added CSS `min-height` to ensure Zero Layout Shift (CLS = 0). | `feat: create accessible skeleton fallback component` |
 | **T1.11** | **Lazy Loading Implementation** | Refactored `App.jsx` to use `React.lazy(() => import('./components/PersonDetail'))`. Wrapped the route element in `<Suspense fallback={<Skeleton />}>`. | `perf: implement react lazy and suspense for detail route` |
+
+
+### Exercise 1.6 & Sprint 2 (Part A): Synchronous Form Validation Engine
+
+| Task ID | Task Description | Technical Details | Git Commit (Atomic) |
+| :--- | :--- | :--- | :--- |
+| **T2.1** | **Context Setup** | Created `FormContext.js` using `createContext`. Exported custom hook `useFormContext` for consumer safety. | `feat: initialize form context architecture` |
+| **T2.2** | **Accessible Input Binding** | Refactored `InputField.jsx` to use `useId()`, `aria-invalid`, and `aria-describedby`. Zero `useEffect` allowed. | `feat: implement accessible input field validation` |
+| **T2.3** | **Synchronous Validation Engine** | Built `SimpleForm.jsx` with derived `errors` object calculated synchronously during render. Removed legacy `useEffect` waterfalls. | `feat: build synchronous form engine` |

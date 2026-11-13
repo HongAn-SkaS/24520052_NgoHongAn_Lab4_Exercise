@@ -3,9 +3,9 @@ import { lazy, Suspense } from 'react';
 
 import PeopleLayout from './components/PeopleLayout';
 import Skeleton from './components/Skeleton';
+import SimpleForm from './components/SimpleForm'; // Thêm import này
 import './App.css'; 
 
-// 1. Code Splitting: Dynamic import PersonDetail
 const PersonDetail = lazy(() => import('./components/PersonDetail'));
 
 const router = createBrowserRouter([
@@ -19,7 +19,6 @@ const router = createBrowserRouter([
     children: [
       {
         path: ':id',
-        // 2. Bọc trong Suspense để hiển thị Skeleton khi đang tải JS
         element: (
           <Suspense fallback={<Skeleton />}>
             <PersonDetail />
@@ -27,6 +26,10 @@ const router = createBrowserRouter([
         )
       }
     ]
+  },
+  {
+    path: '/register', // Thêm Route mới cho Form
+    element: <SimpleForm />
   }
 ]);
 

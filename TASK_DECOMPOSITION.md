@@ -173,8 +173,8 @@ These exact commits will be used as atomic checkpoints. The remaining commits wi
 
 | Task ID | Task Description | Technical Details | Git Commit (Atomic) |
 | :--- | :--- | :--- | :--- |
-| **T1.1** | **Setup & Contract** | Cài đặt `react-router-dom@v7`. Tách mảng `SMART_PEOPLE` ra file `src/data.js`. | `chore: install router v7 & extract data contract` |
-| **T1.2** | **Layout Migration** | Tạo `PeopleLayout.jsx`. Chuyển logic Filter/Sort và Focus Management từ Lab 3 sang. Thay `<article>` bằng `<NavLink>` và thêm `<Outlet />`. | `feat: router layout` |
-| **T1.3** | **Detail Route** | Tạo `PersonDetail.jsx`. Dùng `useParams()` lấy ID. Dùng `.find()` để lấy data. Thêm chốt chặn 404 Boundary. | `feat: detail route handling` |
-| **T1.4** | **Integration & Fixes** | Cấu hình `createBrowserRouter` trong `App.jsx`. Sửa các lỗi đường dẫn tương đối (từ `./` sang `../`). | `fix: resolve relative imports & configure router` |
-| **T1.5** | **Verification** | Kiểm tra Deep Linking (F5 không mất data), kiểm tra 404, và đảm bảo Console không có Warning. Ghi lỗi AI vào Audit. | *(No commit needed, part of verification)* |
+| **T1.1** | **Setup & Contract** | Install `react-router-dom@v7`. Extract the `SMART_PEOPLE` array into `src/data.js`. | `chore: install router v7 & extract data contract` |
+| **T1.2** | **Layout Migration** | Create `PeopleLayout.jsx`. Migrate the Filter/Sort logic and Focus Management from Lab 3. Replace `<article>` with `<NavLink>` and add `<Outlet />`. | `feat: router layout` |
+| **T1.3** | **Detail Route** | Create `PersonDetail.jsx`. Use `useParams()` to get the ID. Use `.find()` to retrieve the data. Add a 404 boundary guard. | `feat: detail route handling` |
+| **T1.4** | **Integration & Fixes** | Configure `createBrowserRouter` in `App.jsx`. Fix relative import paths (from `./` to `../`). | `fix: resolve relative imports & configure router` |
+| **T1.5** | **Verification** | Verify deep linking (no data loss on F5/refresh), verify the 404 page, and ensure there are no Console warnings. Log AI errors in the Audit. | *(No commit needed; part of verification)* |

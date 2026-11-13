@@ -1,7 +1,7 @@
 import { useId, useLayoutEffect, useRef, useState } from 'react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
-import { SMART_PEOPLE } from '../data'; // 2 dấu chấm để lùi ra ngoài
-import '../App.css'; // 2 dấu chấm
+import { SMART_PEOPLE } from '../data'; // Chú ý: 2 dấu chấm
+import '../App.css'; // Chú ý: 2 dấu chấm
 
 export default function PeopleLayout() {
   const searchInputId = useId();
@@ -52,8 +52,10 @@ export default function PeopleLayout() {
 
   function handleDelete(personId, e) {
     e.preventDefault(); 
+    e.stopPropagation(); // Ngăn chặn sự kiện click lan sang thẻ khác
+
     if (window.location.pathname.includes(personId)) {
-       navigate('/people'); // Nếu xóa người đang xem thì đẩy về /people
+       navigate('/people'); 
     }
 
     const currentIndex = sortedPeople.findIndex((person) => person.id === personId);
@@ -74,8 +76,11 @@ export default function PeopleLayout() {
   }
 
   return (
-    <main className="directory" style={{ display: 'flex', gap: '20px', padding: '20px' }}>
-      <div style={{ flex: '0 0 400px' }}>
+    // SỬ DỤNG CLASS CSS GRID MỚI
+    <main className="master-detail-layout">
+      
+      {/* CỘT TRÁI: MASTER (Bộ lọc + Danh sách) */}
+      <div className="master-panel">
         <header className="directory__header">
           <h1>Directory</h1>
         </header>
@@ -106,11 +111,10 @@ export default function PeopleLayout() {
 
           <ul className="people-list">
             {sortedPeople.map((person) => (
-              <li key={person.id} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
+              <li key={person.id}>
                 <NavLink 
                   to={`/people/${person.id}`}
                   className={({ isActive }) => isActive ? 'active-link' : 'link'}
-                  style={({ isActive }) => ({ fontWeight: isActive ? 'bold' : 'normal' })}
                 >
                   {person.name}
                 </NavLink>
@@ -130,9 +134,11 @@ export default function PeopleLayout() {
         </section>
       </div>
 
-      <div style={{ flex: 1, borderLeft: '2px solid #ccc', paddingLeft: '20px' }}>
+      {/* CỘT PHẢI: DETAIL (Nội dung thay đổi) */}
+      <div className="detail-panel">
         <Outlet /> 
       </div>
+
     </main>
   );
 }

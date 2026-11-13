@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { SMART_PEOPLE } from '../data'; // 2 dấu chấm
-import '../App.css'; // 2 dấu chấm
+import { SMART_PEOPLE } from '../data'; 
 
 export default function PersonDetail() {
   const { id } = useParams();
@@ -8,20 +7,24 @@ export default function PersonDetail() {
 
   if (!person) {
     return (
-      <div role="alert" style={{ color: 'red' }}>
-        <h2>404: Not Found</h2>
-        <p>Người này không tồn tại!</p>
+      <div className="not-found-state" role="alert" style={{ color: 'red' }}>
+        <h2>404: Person Not Found</h2>
+        <p>Người bạn tìm kiếm không tồn tại trong danh bạ.</p>
       </div>
     );
   }
 
   return (
-    <article className="person-card">
-      <h2>{person.name}</h2>
-      <dl className="person-card__details">
-        <dt>Age</dt>
+    <article className="person-details">
+      <h2>Chi tiết: {person.name}</h2>
+      <dl>
+        <dt>Họ và Tên</dt>
+        <dd>{person.name}</dd>
+        
+        <dt>Tuổi</dt>
         <dd>{person.age}</dd>
-        <dt>IQ</dt>
+        
+        <dt>Chỉ số IQ</dt>
         <dd>{person.iq}</dd>
       </dl>
     </article>
